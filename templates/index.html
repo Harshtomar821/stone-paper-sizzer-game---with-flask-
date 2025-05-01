@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stone Paper Scissors</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="game-container">
+    <h1>🪨📄✂️ Stone Paper Scissors</h1>
+
+    <div class="scoreboard">
+      <p>You: {{ ucount }}</p>
+      <p>Computer: {{ ccount }}</p>
+    </div>
+
+    <form method="POST">
+      <div class="buttons">
+        <button name="choice" value="stone">🪨 Stone</button>
+        <button name="choice" value="paper">📄 Paper</button>
+        <button name="choice" value="scissors">✂️ Scissors</button>
+      </div>
+    </form>
+
+    {% if result %}
+      <div class="result">
+        <h2>{{ result }}</h2>
+        <p>You chose: {{ user_choice }}</p>
+        <p>Computer chose: {{ comp_choice }}</p>
+      </div>
+    {% endif %}
+
+    <a href="{{ url_for('reset') }}" class="reset-btn">Reset Game</a>
+  </div>
+</body>
+</html>
